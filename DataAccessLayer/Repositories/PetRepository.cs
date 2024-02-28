@@ -22,7 +22,7 @@ namespace DataAccessLayer.Repositories
 
         public async Task<IEnumerable<Pet>> GetAllPetsAsync()
         {
-            return await _context.Pets.ToListAsync();
+            return _context.Pets;
         }
 
         public async Task<Pet?> GetPetAsync(Guid id)

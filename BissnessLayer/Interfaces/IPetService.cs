@@ -1,18 +1,20 @@
 ﻿using BissnessLayer.DTOs;
-using BissnessLayer.Services.PetChangeName;
-using Core.Enums;
+using BissnessLayer.Handlers.PetHandler.PetAdd;
+using BissnessLayer.Handlers.PetHandler.PetChangeName;
+using BissnessLayer.Handlers.PetHandler.PetChangeStatus;
+using BissnessLayer.Responses;
 
 namespace BissnessLayer.Interfaces;
 
 public interface IPetService
 {
-    public Task<PetDTO> GetPet(Guid petId);
+    public Task<PetDTO> GetPetAsync(Guid petId);
 
-    public Task<IEnumerable<PetDTO>> GetAllPets();
+    public Task<IEnumerable<PetGetAllResponse>> GetAllPetsAsync();
 
-    public Task<bool> ChangeStatus(Guid petId, MedicalStatuses newStatus);
+    public Task<bool> ChangeStatusAsync(PetChangeStatusRequest request);
 
-    public Task<bool> ChangeName(ChangeNameRequest request);
+    public Task<bool> ChangeNameAsync(PetChangeNameRequest request);
 
-    public Task<Guid> AddPet(PetDTO petDTO);
+    public Task<Guid> AddPetAsync(PetAddRequest petDTO);
 }

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace BissnessLayer.Services.PetChangeName;
+namespace BissnessLayer.Handlers.PetHandler.PetChangeName;
 
-public class ChangeNameRequestValidator : AbstractValidator<ChangeNameRequest>
+public class PetChangeNameRequestValidator : AbstractValidator<PetChangeNameRequest>
 {
-    public ChangeNameRequestValidator()
+    public PetChangeNameRequestValidator()
     {
         RuleFor(x => x.PetId)
             .NotEmpty();

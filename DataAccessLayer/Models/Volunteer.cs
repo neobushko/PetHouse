@@ -1,6 +1,6 @@
 ﻿namespace DataAccessLayer.Models
 {
-    public class Volunteer
+    public class VolunteerDTO
     {
         public Guid Id { get; set; }
 

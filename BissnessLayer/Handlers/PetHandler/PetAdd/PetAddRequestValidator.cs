@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Core.Enums;
+using FluentValidation;
 
 namespace BissnessLayer.Handlers.PetHandler.PetAdd;
 
@@ -7,10 +8,10 @@ public class PetAddRequestValidator : AbstractValidator<PetAddRequest>
     public PetAddRequestValidator()
     {
         RuleFor(x => x.AnimalClass)
-            .NotEmpty();
+            .IsInEnum();
 
         RuleFor(x => x.MedicalStatus)
-            .NotEmpty();
+            .IsInEnum();
 
         RuleFor(x => x.Name)
             .NotEmpty()

@@ -12,6 +12,6 @@
 
         public bool IsActive { get; set; }
 
-        public IEnumerable<Volunteer> Volunteers { get; set; }
+        public IEnumerable<VolunteerDTO> Volunteers { get; set; }
     }
 }

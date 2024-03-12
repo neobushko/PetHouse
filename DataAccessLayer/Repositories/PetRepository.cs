@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Repositories
 {
-    public class PetRepository : IPetRepository
+    public class PetRepository : IRepository<Pet>
     {
         private PetHouseContext _context;
 
@@ -13,24 +13,24 @@ namespace DataAccessLayer.Repositories
             _context = context;
         }
 
-        public async Task<Guid> AddPetAsync(Pet pet)
+        public async Task<Guid> AddAsync(Pet pet)
         {
             await _context.Pets.AddAsync(pet);
             var result = await _context.SaveChangesAsync();
             return result > 0 ? pet.Id : Guid.Empty;
         }
 
-        public async Task<IEnumerable<Pet>> GetAllPetsAsync()
+        public async Task<IEnumerable<Pet>> GetAllAsync()
         {
             return _context.Pets;
         }
 
-        public async Task<Pet?> GetPetAsync(Guid id)
+        public async Task<Pet?> GetAsync(Guid id)
         {
             return await _context.Pets.FirstOrDefaultAsync(pet => pet.Id == id);
         }
 
-        public async Task<bool> UpdatePetAsync(Pet pet)
+        public async Task<bool> UpdateAsync(Pet pet)
         {
             //var petDb = await _context.Pets.FirstOrDefaultAsync(petDb => petDb.Id == pet.Id);
             //if (petDb != null)
@@ -50,7 +50,7 @@ namespace DataAccessLayer.Repositories
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> DeletePet(Guid id)
+        public async Task<bool> Delete(Guid id)
         {
             var pet = await _context.Pets.FirstAsync(x => x.Id == id);
 

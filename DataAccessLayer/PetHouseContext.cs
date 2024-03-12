@@ -8,7 +8,7 @@ namespace DataAccessLayer
         public DbSet<MedicalCard> MedicalCards { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Position> Positions { get; set; }
-        public DbSet<Volunteer> Volunteers { get; set; }
+        public DbSet<VolunteerDTO> Volunteers { get; set; }
         public DbSet<VolunteerPet> VolunteerPets { get; set; }
 
         public PetHouseContext(DbContextOptions<PetHouseContext> options)
